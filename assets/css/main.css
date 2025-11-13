@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+:root {
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fade-up 0.8s var(--ease-smooth) forwards;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+}
+
+@layer components {
+  .interactive-hover {
+    position: relative;
+    transition:
+      transform 0.45s var(--ease-smooth),
+      box-shadow 0.45s var(--ease-smooth),
+      background-position 0.6s var(--ease-smooth),
+      color 0.3s ease;
+    will-change: transform, box-shadow;
+  }
+
+  .interactive-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 18px 35px -18px rgba(34, 211, 238, 0.35);
+  }
+
+  .interactive-hover:focus-visible {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.25);
+  }
+
+  .interactive-hover:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 12px 28px -20px rgba(34, 211, 238, 0.45);
+  }
+
+  .interactive-gradient {
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+  }
+
+  .interactive-gradient:hover {
+    background-position: 100% 50%;
+  }
+
+  .form-field {
+    transition:
+      border-color 0.4s var(--ease-smooth),
+      box-shadow 0.4s var(--ease-smooth),
+      transform 0.3s var(--ease-smooth);
+  }
+
+  .form-field:hover {
+    border-color: rgb(45 212 191 / 0.6);
+  }
+
+  .form-field:focus-visible {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px -20px rgba(56, 189, 248, 0.5);
+  }
+
+  .form-field:focus {
+    outline: none;
+  }
+
+  .chip-animate {
+    transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
+  }
+
+  .chip-animate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px -18px rgba(15, 118, 110, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .interactive-hover,
+  .form-field,
+  .chip-animate {
+    transition: none;
+  }
+}
+
