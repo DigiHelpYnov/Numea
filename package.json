@@ -1,0 +1,34 @@
+{
+  "name": "numea",
+  "version": "1.0.0",
+  "description": "Site Numea",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "swagger": "node swagger.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigiHelpYnov/Numea.git"
+  },
+  "author": "numea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DigiHelpYnov/Numea/issues"
+  },
+  "homepage": "https://github.com/DigiHelpYnov/Numea#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3",
+    "nodemon": "^3.1.11",
+    "sequelize": "^6.37.7",
+    "sequelize-auto": "^0.8.8",
+    "sequelize-cli": "^6.6.3"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
